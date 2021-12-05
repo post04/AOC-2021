@@ -91,13 +91,10 @@ func partTwo() {
 	mainMap := make(map[string]int)
 
 	for _, point := range arr {
-		parts := strings.Split(point, " -> ")
-		start := parts[0]
-		end := parts[1]
-		x1, _ := strconv.Atoi(strings.Split(start, ",")[0])
-		y1, _ := strconv.Atoi(strings.Split(start, ",")[1])
-		x2, _ := strconv.Atoi(strings.Split(end, ",")[0])
-		y2, _ := strconv.Atoi(strings.Split(end, ",")[1])
+		x1, _ := strconv.Atoi(strings.Split(strings.Split(point, " -> ")[0], ",")[0])
+		y1, _ := strconv.Atoi(strings.Split(strings.Split(point, " -> ")[0], ",")[1])
+		x2, _ := strconv.Atoi(strings.Split(strings.Split(point, " -> ")[1], ",")[0])
+		y2, _ := strconv.Atoi(strings.Split(strings.Split(point, " -> ")[1], ",")[1])
 		if x1 == x2 {
 			if y1 > y2 {
 				temp := y1
@@ -124,10 +121,6 @@ func partTwo() {
 				mainMap[fmt.Sprint(i)+","+fmt.Sprint(y1)]++
 			}
 		}
-		x1, _ = strconv.Atoi(strings.Split(start, ",")[0])
-		y1, _ = strconv.Atoi(strings.Split(start, ",")[1])
-		x2, _ = strconv.Atoi(strings.Split(end, ",")[0])
-		y2, _ = strconv.Atoi(strings.Split(end, ",")[1])
 		if y1 != y2 && x1 != x2 {
 			differencex := int(math.Abs(float64(x1 - x2)))
 			tempx1 := x1
