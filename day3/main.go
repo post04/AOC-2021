@@ -117,6 +117,7 @@ func partTwo() {
 				oneByte++
 			}
 		}
+
 		if len(newArr) == 1 {
 			currLeast = newArr[0]
 			break
