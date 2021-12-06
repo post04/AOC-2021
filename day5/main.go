@@ -6,6 +6,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"time"
 )
 
 // StringToList -
@@ -154,6 +155,10 @@ func partTwo() {
 }
 
 func main() {
+	start := time.Now().UnixMilli()
 	partOne()
+	fmt.Printf("Part 1 time: %vms\n", time.Now().UnixMilli()-start)
+	start = time.Now().UnixMilli()
 	partTwo()
+	fmt.Printf("Part 2 time: %vms\n", time.Now().UnixMilli()-start)
 }
